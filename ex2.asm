@@ -1,22 +1,22 @@
 bits 64
-extern _printf
-extern _scanf
+extern printf
+extern scanf
 
-global _main
+global main
 
 section .text
-_main:
+main:
     mov rdi, qword numberPrompt
     mov rax, 0
     push rbx
-    call _printf
+    call printf
     pop rbx
 
     mov rdi, qword numberFormat
     mov rsi, qword number
     mov rax, 0
     push rbx
-    call _scanf
+    call scanf
     pop rbx
 
 
@@ -30,7 +30,7 @@ _main:
     
 
     push rbx
-    call _printf
+    call printf
     pop rbx
     ret
 

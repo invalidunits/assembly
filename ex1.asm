@@ -1,16 +1,16 @@
 bits 64
-extern _printf
-extern _scanf
+extern printf
+extern scanf
 
-global _main
+global main
 
 section .text
-_main:
+main:
 ; printf("Enter a number:")
     mov rdi, qword numberPrompt
     mov rax, 0
     push rbx
-    call _printf
+    call printf
     pop rbx
 
 
@@ -18,7 +18,7 @@ _main:
     mov rsi, qword number
     mov rax, 0
     push rbx
-    call _scanf
+    call scanf
     pop rbx
 
     mov rdx, 0
@@ -27,7 +27,7 @@ _main:
     idiv rcx
     cmp rdx, 0
     mov rdi, qword numberOdd
-    jnz _main.after1
+    jnz main.after1
 
     mov rdi, qword numberEven
     .after1:
@@ -37,7 +37,7 @@ _main:
     
 
     push rbx
-    call _printf
+    call printf
     pop rbx
 
     mov rax, 0 ; return 0
