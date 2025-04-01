@@ -33,21 +33,23 @@ _main:
     .after1:
     mov rax, [qword number]
     mov rsi, rax
-    mov eax, 1
+    mov rax, 0
     
 
     push rbx
     call _printf
     pop rbx
-    ret
+
+    mov rax, 0 ; return 0
+    ret 
 
 
 section .data
     numberPrompt db "Enter a number: ", 0
-    numberFormat db "%ll", 0
+    numberFormat db "%lld", 0
 
-    numberEven db "The number %ll is an even number", 0
-    numberOdd db "The number %ll is an odd number", 0
+    numberEven db "The number %lld is an even number", 10, 0
+    numberOdd db "The number %lld is an odd number", 10, 0
 
 section .bss
     number resq 1
